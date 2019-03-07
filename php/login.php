@@ -34,7 +34,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 include 'header.php';
 
 ?>
-    <div class="wrapper">
+    <div class="wrapper jumbotron">
         <h2>Login</h2>
         <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
             <div class="form-group">
@@ -46,7 +46,7 @@ include 'header.php';
                 <input type="password" name="password" class="form-control">
             </div>
             <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="Login">
+                <input type="submit" class="btn btn-secondary" value="Login">
             </div>
         </form>
     </div>    

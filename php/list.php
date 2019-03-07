@@ -8,12 +8,12 @@ include 'header.php';
 $SQL = $connection->prepare('SELECT * FROM article');
 $SQL->execute();
 $SQL->setFetchMode(PDO::FETCH_ASSOC);
-print_r($SQL->rowCount());
+//print_r($SQL->rowCount());
 $result = $SQL->fetchAll();
 
 //var_dump($result);
 if (isset($_SESSION["loggedin"])) {
-   if ($_SESSION["loggedin"] == true) echo "<div class='row'><p><a href='new.php'> new.php </a></p></div>";
+   if ($_SESSION["loggedin"] == true) echo "<div class='row'><p><a href='new.php' class='btn btn-primary'> Create a new article </a></p></div>";
 }
 
 for ($count = 0; $count < count($result); $count++) {
@@ -24,13 +24,17 @@ for ($count = 0; $count < count($result); $count++) {
 
 	//Loop and Create HTML
     // print_r($result[$count]);
-        ?>
 
-<a href="<?php echo 'view.php?id='.$result[$count]['id'] ?>">
-    <h2><?php echo $result[$count]['title'] ?></h2>
-</a>
-<p><?php echo $result[$count]['description'] ?></p>
-<img src="<?php echo $result[$count]['img'] ?>" alt="">
+     ?>
+        <div class="list-group-horizontal-sm ">
+         <div class=" wrapper list-group-item card flex-nowrap" style="width: 32rem;">
+             <img src="<?php echo $result[$count]['img'] ?>" alt="">
+            <a href="<?php echo 'view.php?id='.$result[$count]['id'] ?>">
+                 <h2><?php echo $result[$count]['title'] ?></h2>
+            </a>
+            <p><?php echo $result[$count]['description'] ?></p>
+        </div>
+        </div>
 
 <?php
 	}
