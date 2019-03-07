@@ -1,0 +1,1 @@
+Jose exercise fron Wednesday
